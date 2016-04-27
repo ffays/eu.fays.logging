@@ -1,4 +1,4 @@
-package logging;
+package eu.fays.logging;
 
 import java.io.IOException;
 import java.io.PrintWriter;

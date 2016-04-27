@@ -1,4 +1,4 @@
-package logging;
+package eu.fays.logging;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
