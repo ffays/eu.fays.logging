@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="eu.fays.logging" default="build">
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.6" />
+	<property name="source" value="1.6" />
+  <presetdef name="javac">
+    <javac includeantruntime="false" />
+  </presetdef>
+
+	<target name="build" description="package">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}" srcdir="src"/>
+	</target>
+
+	<target name="package" depends="build" description="package">
+		<tstamp>
+			<format property="today" pattern="dd-MMM-yyyy HH:mm:ss" />
+		</tstamp>
+		<jar destfile="${ant.project.name}.jar" basedir="bin" excludes="**/Test.class">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-Date" value="${today}" />
+				<attribute name="Implementation-Version" value="${today}" />
+			</manifest>
+		</jar>
+	</target>
+</project>
